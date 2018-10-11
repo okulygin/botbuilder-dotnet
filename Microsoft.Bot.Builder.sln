@@ -70,6 +70,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.ApplicationIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Bot.Builder.ApplicationInsights.Tests", "Microsoft.Bot.Builder.ApplicationInsights.Tests\Microsoft.Bot.Builder.ApplicationInsights.Tests.csproj", "{FC304BC8-D719-4E97-8C6C-36BDC342F069}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Builder.Dialogs.Integration.AspNet.Core", "libraries\integration\Dialogs.AspNet.Core\Microsoft.Bot.Builder.Dialogs.Integration.AspNet.Core.csproj", "{A435381F-0E02-4939-A45F-FFD06C15D34F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug - NuGet Packages|Any CPU = Debug - NuGet Packages|Any CPU
@@ -303,6 +305,14 @@ Global
 		{FC304BC8-D719-4E97-8C6C-36BDC342F069}.Documentation|Any CPU.Build.0 = Debug|Any CPU
 		{FC304BC8-D719-4E97-8C6C-36BDC342F069}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC304BC8-D719-4E97-8C6C-36BDC342F069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A435381F-0E02-4939-A45F-FFD06C15D34F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -340,6 +350,7 @@ Global
 		{B609DB2C-5C1F-46D1-A0FA-A0FF9216899A} = {4269F3C3-6B42-419B-B64A-3E6DC0F1574A}
 		{3F4A0DD8-4D47-4B9C-939A-3146E68C84F7} = {0A0E26B0-7A46-4F1A-8BFE-9A763FDF6CF8}
 		{FC304BC8-D719-4E97-8C6C-36BDC342F069} = {AD743B78-D61F-4FBF-B620-FA83CE599A50}
+		{A435381F-0E02-4939-A45F-FFD06C15D34F} = {276EBE79-A13A-46BD-A566-B01DC0477A9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7173C9F3-A7F9-496E-9078-9156E35D6E16}

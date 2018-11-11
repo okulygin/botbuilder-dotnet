@@ -15,7 +15,7 @@ namespace Microsoft.Bot.Builder.TestBot
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+                .UseStartup<StartupDialogs>()
                 .Build();
     }
 }

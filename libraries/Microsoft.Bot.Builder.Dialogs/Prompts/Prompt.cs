@@ -22,6 +22,11 @@ namespace Microsoft.Bot.Builder.Dialogs
 
         private readonly PromptValidator<T> _validator;
 
+        public Prompt(PromptValidator<T> validator = null)
+        {
+            _validator = validator;
+        }
+
         public Prompt(string dialogId, PromptValidator<T> validator = null)
             : base(dialogId)
         {

@@ -11,7 +11,7 @@ namespace Microsoft.Bot.Builder.Dialogs
     /// <summary>
     /// A related set of dialogs that can all call each other.
     /// </summary>
-    public class DialogSet
+    public class DialogSet : IDialogFactory
     {
         private readonly IStatePropertyAccessor<DialogState> _dialogState;
         private readonly IDictionary<string, Dialog> _dialogs = new Dictionary<string, Dialog>();
@@ -86,5 +86,7 @@ namespace Microsoft.Bot.Builder.Dialogs
 
             return null;
         }
+
+        Dialog IDialogFactory.GetDialog(string dialogId) => Find(dialogId);
     }
 }

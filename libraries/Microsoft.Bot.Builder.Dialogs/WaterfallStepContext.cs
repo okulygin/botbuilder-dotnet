@@ -13,8 +13,8 @@ namespace Microsoft.Bot.Builder.Dialogs
         private readonly WaterfallDialog _parent;
         private bool _nextCalled;
 
-        internal WaterfallStepContext(WaterfallDialog parent, DialogContext dc, object options,  IDictionary<string, object> values, int index, DialogReason reason, object result = null)
-            : base(dc.Dialogs, dc.Context, new DialogState(dc.Stack))
+        internal WaterfallStepContext(WaterfallDialog parent, DialogContext dc, object options, IDictionary<string, object> values, int index, DialogReason reason, object result = null)
+            : base(dc.DialogFactory, dc.Context, new DialogState(dc.Stack))
         {
             _parent = parent;
             _nextCalled = false;

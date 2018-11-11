@@ -6,17 +6,15 @@ namespace Microsoft.Bot.Builder.Integration.AspNet.Core
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddDialogBot<TDialogSet>(this IServiceCollection services, IStatePropertyAccessor<DialogState> dialogStatePropertyAccessor, Action<BotFrameworkOptions> configureAction = null)
-            where TDialogSet : DialogSet
+        public static IServiceCollection AddDialogsBot(this IServiceCollection services, Action<DialogsBotBuilder> build, Action<BotFrameworkOptions> configure = null) =>
+            services.AddDialogsBot<DialogsBot>(build, configure);
+
+        public static IServiceCollection AddDialogsBot<TDialogsBot>(this IServiceCollection services, Action<DialogsBotBuilder> build, Action<BotFrameworkOptions> configure = null)
+            where TDialogsBot : DialogsBot
         {
-            if (services == null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
+            build(new DialogsBotBuilder(services));
 
-            services.AddBot(new DialogBot<TDialogSet>(dialogStatePropertyAccessor), configureAction);
-
-            return services;
+            return services.AddBot<TDialogsBot>(configure);
         }
     }
 }

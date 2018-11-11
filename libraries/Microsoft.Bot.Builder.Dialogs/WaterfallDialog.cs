@@ -22,6 +22,11 @@ namespace Microsoft.Bot.Builder.Dialogs
 
         private readonly List<WaterfallStep> _steps;
 
+        public WaterfallDialog(string promptId, params WaterfallStep[] steps)
+            : this(promptId, (IEnumerable<WaterfallStep>)steps)
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="WaterfallDialog"/> class.
         /// </summary>

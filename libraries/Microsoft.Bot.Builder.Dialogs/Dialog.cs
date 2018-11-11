@@ -14,6 +14,10 @@ namespace Microsoft.Bot.Builder.Dialogs
     {
         public static readonly DialogTurnResult EndOfTurn = new DialogTurnResult(DialogTurnStatus.Waiting);
 
+        public Dialog()
+        {
+        }
+
         public Dialog(string dialogId)
         {
             if (string.IsNullOrWhiteSpace(dialogId))
@@ -24,7 +28,7 @@ namespace Microsoft.Bot.Builder.Dialogs
             Id = dialogId;
         }
 
-        public string Id { get; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Method called when a new dialog has been pushed onto the stack and is being activated.

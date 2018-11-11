@@ -14,18 +14,18 @@ namespace Microsoft.Bot.Builder.Dialogs
         /// <summary>
         /// Initializes a new instance of the <see cref="DialogContext"/> class.
         /// </summary>
-        /// <param name="dialogs">Parent dialog set.</param>
+        /// <param name="dialogFactory">The factory to be used when creating <see cref="Dialog" /> instances.</param>
         /// <param name="turnContext">Context for the current turn of conversation with the user.</param>
         /// <param name="state">Current dialog state.</param>
-        internal DialogContext(DialogSet dialogs, ITurnContext turnContext, DialogState state)
+        internal DialogContext(IDialogFactory dialogFactory, ITurnContext turnContext, DialogState state)
         {
-            Dialogs = dialogs ?? throw new ArgumentNullException(nameof(dialogs));
+            DialogFactory = dialogFactory ?? throw new ArgumentNullException(nameof(dialogFactory));
             Context = turnContext ?? throw new ArgumentNullException(nameof(turnContext));
 
             Stack = state.DialogStack;
         }
 
-        public DialogSet Dialogs { get; private set; }
+        public IDialogFactory DialogFactory { get; private set; }
 
         public ITurnContext Context { get; private set; }
 
@@ -65,7 +65,7 @@ namespace Microsoft.Bot.Builder.Dialogs
             }
 
             // Lookup dialog
-            var dialog = Dialogs.Find(dialogId);
+            var dialog = DialogFactory.GetDialog(dialogId);
             if (dialog == null)
             {
                 throw new Exception($"DialogContext.BeginDialogAsync(): A dialog with an id of '{dialogId}' wasn't found.");
@@ -120,7 +120,7 @@ namespace Microsoft.Bot.Builder.Dialogs
             if (ActiveDialog != null)
             {
                 // Lookup dialog
-                var dialog = Dialogs.Find(ActiveDialog.Id);
+                var dialog = DialogFactory.GetDialog(ActiveDialog.Id);
                 if (dialog == null)
                 {
                     throw new Exception($"DialogContext.ContinueDialogAsync(): Can't continue dialog. A dialog with an id of '{ActiveDialog.Id}' wasn't found.");
@@ -159,7 +159,7 @@ namespace Microsoft.Bot.Builder.Dialogs
             if (ActiveDialog != null)
             {
                 // Lookup dialog
-                var dialog = Dialogs.Find(ActiveDialog.Id);
+                var dialog = DialogFactory.GetDialog(ActiveDialog.Id);
                 if (dialog == null)
                 {
                     throw new Exception($"DialogContext.EndDialogAsync(): Can't resume previous dialog. A dialog with an id of '{ActiveDialog.Id}' wasn't found.");
@@ -227,7 +227,7 @@ namespace Microsoft.Bot.Builder.Dialogs
             if (ActiveDialog != null)
             {
                 // Lookup dialog
-                var dialog = Dialogs.Find(ActiveDialog.Id);
+                var dialog = DialogFactory.GetDialog(ActiveDialog.Id);
                 if (dialog == null)
                 {
                     throw new Exception($"DialogSet.RepromptDialogAsync(): Can't find A dialog with an id of '{ActiveDialog.Id}'.");
@@ -244,7 +244,7 @@ namespace Microsoft.Bot.Builder.Dialogs
             if (instance != null)
             {
                 // Lookup dialog
-                var dialog = Dialogs.Find(instance.Id);
+                var dialog = DialogFactory.GetDialog(instance.Id);
                 if (dialog != null)
                 {
                     // Notify dialog of end

@@ -49,6 +49,7 @@
 
 	<PropertyGroup>
 	  <CodeAnalysisRuleSet>Microsoft.Bot.Builder.Integration.AspNet.Core.ruleset</CodeAnalysisRuleSet>
+	  <LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Bot.Builder.Integration.AspNet.Core
 {
-
     public class DialogsBotBuilder
     {
         private readonly IServiceCollection _services;

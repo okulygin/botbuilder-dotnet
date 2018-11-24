@@ -12,9 +12,9 @@ namespace Microsoft.Bot.Builder.Integration.AspNet.Core
 
     public static class DialogsBotBuilderExtensions
     {
-        public static DialogsBotBuilder UseDefaultDialogFactory(this DialogsBotBuilder builder, Action<DefaultDialogFactoryBuilder> configure)
+        public static DialogsBotBuilder UseDefaultDialogFactory(this DialogsBotBuilder builder, Action<DialogFactoryBuilder> configure)
         {
-            var defaultDialogFactoryBuilder = new DefaultDialogFactoryBuilder();
+            var defaultDialogFactoryBuilder = new DialogFactoryBuilder();
 
             configure(defaultDialogFactoryBuilder);
 

@@ -9,17 +9,17 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Bot.Builder.Integration.AspNet.Core
 {
-    public sealed class DefaultDialogFactoryBuilder
+    public sealed class DialogFactoryBuilder
     {
         private readonly Dictionary<string, DialogFactory> _dialogFactories = new Dictionary<string, DialogFactory>();
 
-        public DefaultDialogFactoryBuilder()
+        public DialogFactoryBuilder()
         {
         }
 
         internal Dictionary<string, DialogFactory> DialogFactories => _dialogFactories;
 
-        public DefaultDialogFactoryBuilder AddDialog(Dialog dialog)
+        public DialogFactoryBuilder AddDialog(Dialog dialog)
         {
             if (dialog == null)
             {
@@ -38,7 +38,7 @@ namespace Microsoft.Bot.Builder.Integration.AspNet.Core
             return this;
         }
 
-        public DefaultDialogFactoryBuilder AddDialog(string dialogId, Type dialogType, params object[] additionalDialogArguments)
+        public DialogFactoryBuilder AddDialog(string dialogId, Type dialogType, params object[] additionalDialogArguments)
         {
             if (string.IsNullOrEmpty(dialogId))
             {
@@ -83,7 +83,7 @@ namespace Microsoft.Bot.Builder.Integration.AspNet.Core
             return this;
         }
 
-        public DefaultDialogFactoryBuilder AddDialog(string dialogId, Func<IServiceProvider, Dialog> dialogFactory)
+        public DialogFactoryBuilder AddDialog(string dialogId, Func<IServiceProvider, Dialog> dialogFactory)
         {
             if (string.IsNullOrEmpty(dialogId))
             {

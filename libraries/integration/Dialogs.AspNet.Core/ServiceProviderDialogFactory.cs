@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace Microsoft.Bot.Builder.Integration.AspNet.Core
 {
     internal delegate Dialog DialogFactory(IServiceProvider serviceProvider, string dialogId);
-    
+
     internal sealed class ServiceProviderDialogFactory : IDialogFactory
     {
         private readonly IServiceProvider _serviceProvider;
